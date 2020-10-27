@@ -1,7 +1,9 @@
-// Requiring our models and passport as we've configured it
+// Requiring our models 
 var db = require("../models");
+//requiring passport
 var passport = require("../config/passport");
 
+//this create a module to export his function.
 module.exports = function(app) {
   // Using the passport.authenticate middleware with our local strategy.
   // If the user has valid login credentials, send them to the members page.

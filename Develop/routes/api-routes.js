@@ -16,21 +16,28 @@ module.exports = function(app) {
   // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
   // otherwise send back an error
   app.post("/api/signup", function(req, res) {
+    //this creates a new user
     db.User.create({
+      //this defines the email column as the email aspect of the body that has been inputted 
       email: req.body.email,
+      //this defines the password column as the email aspect of the body that has been inputed
       password: req.body.password
-    })
+    })//then this function happens with the gathered info
       .then(function() {
+        //this redirects them to the api.login page
         res.redirect(307, "/api/login");
-      })
+      })//watches for an error
       .catch(function(err) {
+        //this will return the error in a 401 status
         res.status(401).json(err);
       });
   });
 
   // Route for logging user out
   app.get("/logout", function(req, res) {
+    //this call the log out function
     req.logout();
+    //this redirects to the main page
     res.redirect("/");
   });
 

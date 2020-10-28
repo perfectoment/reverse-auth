@@ -32,7 +32,7 @@ fs
   //this is a function that filters out a specific file with certain set parameters.
   .filter(function(file) {
     //This is the parameters for the file being chosen. What it means is the "." is essentially open parameters that don't equal zero
-    //AND the file cannot equal the model.filename AND the third element from the end otf the array of files is a  ".js" file.
+    //AND the file cannot equal the model.filename AND the third element from the end of the array of files is a  ".js" file.
     return (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js');
   })
   //this will iterate through each element in the file array
@@ -42,7 +42,7 @@ fs
     //this defines the db model that has the element of the name of the model and defines it as just model
     db[model.name] = model;
   });
-//this checks the keys of the model objects and iterates betweem each one.
+//this creates an array of keys of the model objects and iterates betweem each one.
 Object.keys(db).forEach(function(modelName) {
   //if the model name is associae is true
   if (db[modelName].associate) {
